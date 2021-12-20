@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Mon Dec 20 2021 21:44:40 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* user/assets/css/templatemo-finance-business.css
+
+
+Created files:
+* .autogit/logs/log-20-11-2021-21-14-20.txt
+* user/assets/images/foto.jpg
+* user/config/koneksi.php
+* user/daftar.php
+
+
+Deleted files:
+* user/daftar.html
+* user/one-page.html
+
+
+Renamed files:
+* [object Object]
+* [object Object]

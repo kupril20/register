@@ -1,3 +1,6 @@
+<?php
+include "../config/koneksi.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,15 +58,15 @@ https://templatemo.com/tm-545-finance-business
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#top">Home
+                <a class="nav-link" href="index.php">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Tentang Kita</a>
+                <a class="nav-link" href="about.php">Tentang Kita</a>
               </li>                        
               <li class="nav-item">
-                <a class="nav-link" href="daftar.html">Daftar</a>
+                <a class="nav-link" href="daftar.php">Daftar</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../index.php">Keluar</a>
@@ -109,7 +112,7 @@ https://templatemo.com/tm-545-finance-business
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="number" name="no_tlpn" id="form3Example3" class="form-control form-control-lg"
+                  <input type="number" name="no_tlp" id="form3Example3" class="form-control form-control-lg"
                     placeholder="No Telepon" />
                   <label class="form-label" for="form3Example3">No Telepon</label>
                 </div>
@@ -131,8 +134,8 @@ https://templatemo.com/tm-545-finance-business
                           </div>
       
                 <div class="text-center text-lg-start mt-4 pt-2">
-                  <button name="login"  class="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom:50px;">MASUK</button>                
+                  <button name="register"  class="btn btn-primary btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom:50px;">DAFTAR</button>                
                   </div>
               </form>
               <br>
@@ -143,26 +146,25 @@ https://templatemo.com/tm-545-finance-business
       </section>   
       </div>
       <?php
-          if (isset($_POST['login'])) {
+          if (isset($_POST['register'])) {
   
             //ngambil data yang dikirim dari form
-            $username = $_POST["username"];
+            $nama = $_POST["nama"];
+            $email = $_POST["email"];
+            $no_tlp = $_POST["no_tlp"];
+            $alamat = $_POST["alamat"];
             $password = $_POST["password"];
   
             //proses periksa usernam dan password di database
-            $query = "SELECT * FROM user WHERE username ='$username' AND password='$password'";
+            $query = "INSERT INTO customer VALUES ('','$nama','$email','$no_tlp','$alamat','$password')";
             $obj_query = mysqli_query($koneksi, $query);
-            $data = mysqli_fetch_assoc($obj_query);
+            // $data = mysqli_fetch_assoc($obj_query);
   
-            if ($data != null) {
-              $_SESSION['username'] = $username;
-              echo "<script>alert('Login berhasil!');</script>";
-              echo "<script>location='/register/user/index.html?username=$username';</script>";
-              exit;
-            } else {
-              echo "<script>alert('Username atau password salah!');</script>";
-              echo "<script>location='index.php';</script>";
-            }
+            echo '<script type ="text/JavaScript">';  
+            echo 'alert("Berhasil di tambahkan")';  
+            echo '</script>';  
+
+            //echo $nama,$email,$no_tlp,$alamat,$password;
           }
           ?>
     </div>

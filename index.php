@@ -47,7 +47,7 @@ include 'config/koneksi.php';
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <div class="container" 
-  style="margin-top: 100px; 
+        style="margin-top: 100px; 
         background-color:white;
         height:450px;
         border-radius: 25px;

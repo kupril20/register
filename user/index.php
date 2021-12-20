@@ -57,15 +57,15 @@ https://templatemo.com/tm-545-finance-business
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#top">Home
+                <a class="nav-link" href="index.php">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Tentang Kita</a>
+                <a class="nav-link" href="about.php">Tentang Kita</a>
               </li>                        
               <li class="nav-item">
-                <a class="nav-link" href="daftar.html">Daftar</a>
+                <a class="nav-link" href="daftar.php">Daftar</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../index.php">Keluar</a>
