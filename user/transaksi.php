@@ -1,5 +1,21 @@
 <?php
-include "../config/koneksi.php"
+$db_host = 'localhost'; // Nama Server
+$db_user = 'root'; // User Server
+$db_pass = ''; // Password Server
+$db_name = 'db_register'; // Nama Database
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+if (!$conn) {
+    die('Gagal terhubung dengan MySQL: ' . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM transaksi";
+
+$query = mysqli_query($conn, $sql);
+
+if (!$query) {
+    die('SQL Error: ' . mysqli_error($conn));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,8 +101,8 @@ https://templatemo.com/tm-545-finance-business
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Register</h1>
-            <span>silahkan lakukan Register untuk membuat akun anda!</span>
+            <h1>Validasi Transaksi</h1>
+            <span>silahkan lakukan Pembayaran untuk mendapatkan Member!</span>
           </div>
         </div>
       </div>
@@ -96,51 +112,81 @@ https://templatemo.com/tm-545-finance-business
       <section class="vh-100">
         <div class="container-fluid h-custom">
           <div class="row d-flex justify-content-center align-items-center h-100">  
-            <form method="post">    
-                <div class="divider d-flex align-items-center my-4">
-                  <h1>Silahkan lengkapi data berikut</h1>
-                </div>
-      
-               
-                <div class="form-outline mb-4">
-                  <input type="text" name="nama" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="Nama lengkap" />
-                  <label class="form-label" for="form3Example3">Nama Lengkap</label>
-                </div>
+          <center>
+                    <?php
+                    $no     = 1;
+                    while ($data = mysqli_fetch_array($query)) {
+                    ?>
 
-                <div class="form-outline mb-4">
-                  <input type="text" name="email" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="Email" />
-                  <label class="form-label" for="form3Example3">Email</label>
-                </div>
+                        <div class="card">
+                            <?php
+                            if($data['bukti_transaksi'] == NULL){
+                            ?>
+                            <img src="assets/images/noimage.jpg" width="100px" height="300px">
+                            <?php
+                                }
+                            else{
+                                ?>
+                            <img src="assets/images/<?php echo $data['bukti_transaksi']; ?>" width="100px" height="300px">
+                            <?php
+                                }
+                            ?>
+                            <div class="container">
+                                <h4>
+                                    <td><?php echo $data['nama_barang'] ?></td>
+                                </h4>                                
+                                <h2><?php echo $data['harga_bayar'] ?></h2>
+                                <?php echo $data['status'] ?>
+                                <p>
+                                    <?php
+                                    if ($data['status'] == "Belum Lunas") {
+                                    ?>
+                                <form method="POST" action="form_add_transaksi.php?username=<?php echo $username; ?>&&id_transaksi=<?php echo $data['id_transaksi']; ?>" enctype="multipart/form-data">
+                                    <table>
+                                        <tbody>
+                                            <br>
+                                            <tr>
+                                                <td><input type="file" name="bukti_transaksi" id="foto"></td>
+                                            </tr>
+                                            <input type="date" name="tgl_transaksi" id="form3Example3" class="form-control form-control-lg"/>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <button type=" submit" name="tambah" class="btn btn-success" style="margin-top: 10px; width: 100%;">Upload</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <h5 style="text-align: left;">Lakukan Transfer sesuai nominal ke No Rekening berikut<br>
+                                                    Bank BRI : 1234-5678-91011 <br> LEMBARKERJAID <br><br>
+                                                </h5>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            <?php
+                                    } else {
+                            ?>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <!-- <td><input type="file" name="foto_validasi" id="foto"></td> -->
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <!-- <button type=" submit" name="tambah" class="btn btn-success" style="margin-top: 10px;">Upload</button> -->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php
+                                    }
+                            ?>
+                            </p>
 
-                <div class="form-outline mb-4">
-                  <input type="number" name="no_tlp" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="No Telepon" />
-                  <label class="form-label" for="form3Example3">No Telepon</label>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="text" name="alamat" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="Alamat" />
-                  <label class="form-label" for="form3Example3">Alamat</label>
-                </div>
-      
-                
-                <div class="form-outline mb-3">
-                  <input type="password" name="password" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Kata Sandi" />
-                  <label class="form-label" for="form3Example4">Kata Sandi</label>
-                </div>
-      
-                <div class="d-flex justify-content-between align-items-center">
-                          </div>
-      
-                <div class="text-center text-lg-start mt-4 pt-2">
-                  <button name="register"  class="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom:50px;">DAFTAR</button>                
-                  </div>
-              </form>
+                            </div>
+                        </div>
+                    <?php $no++;
+                    } ?>
+                </center>
               <br>
             <br>
             </div>          
@@ -149,15 +195,12 @@ https://templatemo.com/tm-545-finance-business
       </section>   
       </div>
       <?php
-          if (isset($_POST['register'])) {
+          if (isset($_POST['tambah'])) {
   
             //ngambil data yang dikirim dari form
-            $nama = $_POST["nama"];
-            $email = $_POST["email"];
-            $no_tlp = $_POST["no_tlp"];
-            $alamat = $_POST["alamat"];
-            $password = $_POST["password"];
-  
+            $tgl_transaksi = $_POST["tgl_transaksi"];
+            $bukti_transaksi = $_POST["bukti_transaksi"];
+   
             //proses periksa usernam dan password di database
             $query = "INSERT INTO customer VALUES ('','$nama','$email','$no_tlp','$alamat','$password')";
             $obj_query = mysqli_query($koneksi, $query);

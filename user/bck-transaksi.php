@@ -1,3 +1,6 @@
+<?php
+include "../config/koneksi.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Finance Business HTML5 Template</title>
+    <title>Finance Business - Contact Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,12 +29,11 @@ https://templatemo.com/tm-545-finance-business
 
 -->
   </head>
-  <style>
-    .Modern-Slider .item-1 .img-fill {
-	background-image: url(assets/images/bg1.jpg);
+<style>
+  .page-heading {
+	background-image: url(assets/images/foto.jpg);
 }
-  </style>
-
+</style>
   <body>
 
     <!-- ***** Preloader Start ***** -->
@@ -45,8 +47,7 @@ https://templatemo.com/tm-545-finance-business
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    
-
+        
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -80,76 +81,106 @@ https://templatemo.com/tm-545-finance-business
     </header>
 
     <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="main-banner header-text" id="top">
-        <div class="Modern-Slider">
-          <!-- Item -->
-          <div class="item item-1">
-            <div class="img-fill">
-                <div class="text-content">
-                  <h6>Tentang kita</h6>
-                  <h4>LEMBARKERJAID</h4>
-                  <p>Lembarkerjaid merupakan salah satu platform penyedia jasa pendidikan yang menyediakan materi pembelajaran dari TK sampai SD kelas 2. Kantor Lembarkerjaid beralamat di Jl. Tuntang-Bringin, Demungan, Karanganyar, Kec. Tuntang, Semarang, Jawa Tengah 50773, Indonesia.</p>               
-                  <h1 style="color: white;">Buka pukul 09:00 - 17:00</h1>
-                </div>
-                </div>
-          </div>
-          <!-- // Item -->
-          <!-- Item -->
-          <!-- <div class="item item-2">
-            <div class="img-fill">
-                <div class="text-content">
-                  <h6>we are here to support you</h6>
-                  <h4>Accounting<br>&amp; Management</h4>
-                  <p>You are allowed to use this template for your company websites. You are NOT allowed to re-distribute this template ZIP file on any template download website. Please contact TemplateMo for more detail.</p>
-                  <a href="services.html" class="filled-button">our services</a>
-                </div>
-            </div>
-          </div> -->
-          <!-- // Item -->
-          <!-- Item -->
-          <!-- <div class="item item-3">
-            <div class="img-fill">
-                <div class="text-content">
-                  <h6>we have a solid background</h6>
-                  <h4>Market Analysis<br>&amp; Statistics</h4>
-                  <p>You can download, edit and use this layout for your business website. Phasellus lacinia ac sapien vitae dapibus. Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</p>
-                  <a href="about.html" class="filled-button">learn more</a>
-                </div>
-            </div>
-          </div> -->
-          <!-- // Item -->
-        </div>
-    </div>
-    <!-- Banner Ends Here -->
-
-    <!-- <div class="request-form">
+    <div class="page-heading header-text">
       <div class="container">
         <div class="row">
-          <div class="col-md-8">
-            <h4>Request a call back right now ?</h4>
-            <span>Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</span>
-          </div>
-          <div class="col-md-4">
-            <a href="contact.html" class="border-button">Contact Us</a>
+          <div class="col-md-12">
+            <h1>Validasi Transaksi</h1>
+            <span>silahkan lakukan Pembayaran untuk mendapatkan Member!</span>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
+
+    <div class="contact-information">
+      <section class="vh-100">
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">  
+            <form method="post">    
+                <div class="divider d-flex align-items-center my-4">
+                  <h1>Silahkan lengkapi data Pembayaran berikut</h1>
+                </div>
+      
+               
+                <div class="form-outline mb-4">
+                  <input type="date" name="tgl_transaksi" id="form3Example3" class="form-control form-control-lg"
+                    />
+                  <label class="form-label" for="form3Example3">Tanggal</label>
+                </div>          
+                
+                <div class="form-outline mb-3">
+                  <h5>Lakukan pembayaran pada :<br>
+                  BRI 12345567890 A.N LEMBARKERJAID<br>
+                  Rp.50.000,-</h5>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="file" name="bukti_transaksi" id="form3Example3" class="form-control form-control-lg"
+                    />
+                  <label class="form-label" for="form3Example3">Upload Bukti Transaksi</label>
+                </div>
+      
+                <div class="d-flex justify-content-between align-items-center">
+                          </div>
+      
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <button name="bayar"  class="btn btn-danger btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom:50px;">BAYAR</button>                
+                  </div>
+              </form>
+              <br>
+            <br>
+            </div>          
+          </div>
+        </div>
+      </section>   
+      </div>
+      <?php
+          if (isset($_POST['bayar'])) {
+  
+            //ngambil data yang dikirim dari form
+            $tgl_transaksi = $_POST["tgl_transaksi"];
+            $bukti_transaksi = $_POST["bukti_transaksi"];
+   
+            //proses periksa usernam dan password di database
+            $query = "INSERT INTO customer VALUES ('','$nama','$email','$no_tlp','$alamat','$password')";
+            $obj_query = mysqli_query($koneksi, $query);
+            // $data = mysqli_fetch_assoc($obj_query);
+  
+            echo '<script type ="text/JavaScript">';  
+            echo 'alert("Berhasil di tambahkan")';  
+            echo '</script>';  
+
+            //echo $nama,$email,$no_tlp,$alamat,$password;
+          }
+          ?>
+    </div>
+
+    
+
+  
 
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.8214231259262!2d110.49700621477483!3d-7.261154394758708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70835b35e780ed%3A0x28e81e2085405d40!2sKampung%20Becik%20Official!5e0!3m2!1sid!2sid!4v1640009501062!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
- 
-
-
-
-    <!-- Footer Starts Here -->  
+    <!-- Footer Starts Here -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-3 footer-item last-item">
+           
+          </div>
+        </div>
+      </div>
+    </footer>
+    
     <div class="sub-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <p>Copyright &copy; 2021 Muhammad Rosi
-                      </div>
+            <p>Copyright &copy; 2020 Financial Business Co., Ltd.
+            
+            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+          </div>
         </div>
       </div>
     </div>

@@ -105,7 +105,15 @@ include 'config/koneksi.php';
             echo "<script>alert('Login berhasil!');</script>";
             echo "<script>location='/register/user/index.html?username=$username';</script>";
             exit;
-          } else {
+          } 
+          if ($data != null) {
+            $_SESSION['username'] = echo "admin";
+            $_SESSION['password'] = echo "password";
+            echo "<script>alert('Login berhasil!');</script>";
+            echo "<script>location='/register/admin/index.php';</script>";
+            exit;
+          } 
+          else {
             echo "<script>alert('Username atau password salah!');</script>";
             echo "<script>location='index.php';</script>";
           }

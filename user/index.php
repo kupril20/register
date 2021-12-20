@@ -68,6 +68,9 @@ https://templatemo.com/tm-545-finance-business
                 <a class="nav-link" href="daftar.php">Daftar</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="transaksi.php">Validasi</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="../index.php">Keluar</a>
               </li>
             </ul>
