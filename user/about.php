@@ -57,7 +57,7 @@ https://templatemo.com/tm-545-finance-business
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#top">Home
+                <a class="nav-link" href="index.html">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
@@ -86,10 +86,10 @@ https://templatemo.com/tm-545-finance-business
                 <div class="text-content">
                   <h6>Tentang kita</h6>
                   <h4>LEMBARKERJAID</h4>
-                  <p>Lembarkerjaid merupakan salah satu penyedia jasa pendidikan online yang menyediakan materi pembelajaran dari TK sampai SD kelas 3.</p>
-                  <a href="daftar.html" class="filled-button">Daftar</a>
+                  <p>Lembarkerjaid merupakan salah satu platform penyedia jasa pendidikan yang menyediakan materi pembelajaran dari TK sampai SD kelas 2. Kantor Lembarkerjaid beralamat di Jl. Tuntang-Bringin, Demungan, Karanganyar, Kec. Tuntang, Semarang, Jawa Tengah 50773, Indonesia.</p>               
+                  <h1 style="color: white;">Buka pukul 09:00 - 17:00</h1>
                 </div>
-            </div>
+                </div>
           </div>
           <!-- // Item -->
           <!-- Item -->
@@ -134,12 +134,10 @@ https://templatemo.com/tm-545-finance-business
       </div>
     </div> -->
 
-    <div class="card">
-           <div class="container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.8214231259262!2d110.49700621477483!3d-7.261154394758708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70835b35e780ed%3A0x28e81e2085405d40!2sKampung%20Becik%20Official!5e0!3m2!1sid!2sid!4v1640009501062!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-      </div>
-    </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.8214231259262!2d110.49700621477483!3d-7.261154394758708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70835b35e780ed%3A0x28e81e2085405d40!2sKampung%20Becik%20Official!5e0!3m2!1sid!2sid!4v1640009501062!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+ 
+
 
 
     <!-- Footer Starts Here -->  
