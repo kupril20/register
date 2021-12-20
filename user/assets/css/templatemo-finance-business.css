@@ -387,16 +387,16 @@ header .navbar {
 }
 
 .Modern-Slider .item-1 .img-fill {
-	background-image: url(../images/slide_01.jpg);
+	background-image: url(../images/bg.jpg);
 }
 
-.Modern-Slider .item-2 .img-fill {
-	background-image: url(../images/slide_02.jpg);
+/* .Modern-Slider .item-2 .img-fill {
+	background-image: url(../images/Gambar1.jpg);
 }
 
 .Modern-Slider .item-3 .img-fill {
-	background-image: url(../images/slide_03.jpg);
-}
+	background-image: url(../images/Gambar1.jpg);
+} */
 
 .Modern-Slider .NextArrow{
   position:absolute;
