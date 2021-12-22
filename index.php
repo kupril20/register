@@ -104,7 +104,6 @@ include 'config/koneksi.php';
             $_SESSION['username'] = $username;
             echo "<script>alert('Login berhasil!');</script>";
             echo "<script>loscation='/register/user/index.html?username=$username';</script>";
-            exit;
             } 
           
           else {

@@ -1,0 +1,24 @@
+-------------------- Auto-Git Log --------------------
+		Mon Dec 20 2021 22:45:17 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* index.php
+* user/about.php
+* user/daftar.php
+* user/index.php
+
+
+Created files:
+* .autogit/logs/log-20-11-2021-22-14-57.txt
+* admin/index.php
+* user/assets/images/noimage.jpg
+* user/bck-transaksi.php
+* user/transaksi.php
+
+
+Deleted files:
+* user/services.html
+
+
+Renamed files:
